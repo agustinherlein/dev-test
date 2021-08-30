@@ -1,8 +1,8 @@
-# Instalación de lumen 5.8 en macOS Big Sur 11.5.2
+## Instalación de lumen 5.8 en macOS Big Sur 11.5.2
 
 https://lumen.laravel.com/docs/5.8
 
-## Dependencias de lumen
+### Dependencias de lumen
 
 - PHP 7.3
     - Viene preinstalado en macOS, de lo contrario se puede instalar con homebrew 
@@ -17,12 +17,10 @@ https://lumen.laravel.com/docs/5.8
     - Y mover el archivo composer.phar a la carpeta local
     - `mv composer.phar /usr/local/bin/composer`
 
----
-
 ## Instalación de lumen
 
-- Con este comando de composer se crea un nuevo proyecto de lumen en la versión especificada. En este caso se utilizó 5.8
-`composer create-project laravel/lumen dev-test "5.8.*"`
+- Con el comando `composer create-project laravel/lumen dev-test "5.8.*"` se crea un nuevo proyecto de lumen con la versión especificada. En este caso se utilizó 5.8. Composer instala las dependencias en la carpeta `vendor`.
+
 
 ## Dependencias del proyecto
 
@@ -35,6 +33,8 @@ https://lumen.laravel.com/docs/5.8
 ## Correr el proyecto localmente
 - `php -S localhost:8000 -t public`
 
+---
+
 ## Integración de API de Spotify
 
 - Registrar aplicación: https://developer.spotify.com/documentation/web-api/quick-start/
@@ -45,6 +45,7 @@ https://lumen.laravel.com/docs/5.8
 
 ## Rutas
 
+- Las rutas están en el archivo `routes/web.php`.
 - Se crea una página principal en `/` que muestra un input para buscar artistas y envía la query al endpoint
 - En `/api/v1/albums?q=query` se devuelven los álbumes del primer artista que coincida con la query, mostrados en una tabla simple. Este pedido es manejado por un controller ubicado en `app/Http/Controllers/ApiController`.
 
@@ -57,4 +58,6 @@ https://lumen.laravel.com/docs/5.8
 
 ## Vistas
 
-- Las dos vistas se hicieron con php y html, utilizando el framework bootstrap 5 para los estilos. También se creó un archivo `public/css/style.css` para estilos adicionales.
+- Los archivos de vistas se ubican en `resources/views`.
+- Las dos vistas se hicieron con php y html, utilizando el framework bootstrap 5 para los estilos. https://getbootstrap.com/. 
+- También se creó un archivo `public/css/style.css` para estilos adicionales.
