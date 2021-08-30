@@ -43,6 +43,18 @@ https://lumen.laravel.com/docs/5.8
     - Búsqueda: https://developer.spotify.com/documentation/web-api/reference/#category-search
     - Álbumes por artista: https://developer.spotify.com/documentation/web-api/reference/#category-artists
 
-## Rutas y controllers
+## Rutas
 
-- Se crea una página principal en `/` que muestra un 
+- Se crea una página principal en `/` que muestra un input para buscar artistas y envía la query al endpoint
+- En `/api/v1/albums?q=query` se devuelven los álbumes del primer artista que coincida con la query, mostrados en una tabla simple. Este pedido es manejado por un controller ubicado en `app/Http/Controllers/ApiController`.
+
+## Pedidos http
+
+- Dentro de `ApiController` se realizan tres pedidos http para poder devolver los álbumes (ver documentación de la API):
+    - Primero a `https://accounts.spotify.com/api/token` utilizando el id de cliente y la clave secreta para obtener un token de autorización.
+    - Luego a `https://api.spotify.com/v1/search?q={query}&type=artist` para utilizar la función de búsqueda de artistas.
+    - Finalmente a `https://api.spotify.com/v1/artists/{id}/albums` para obtener los álbumes del artista encontrado.
+
+## Vistas
+
+- Las dos vistas se hicieron con php y html, utilizando el framework bootstrap 5 para los estilos. También se creó un archivo `public/css/style.css` para estilos adicionales.
